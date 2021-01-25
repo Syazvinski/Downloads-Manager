@@ -1,6 +1,6 @@
 import os, time
-import endings
-
+import logic
+from infi.systray import SysTrayIcon
 
 #path to watch
 path_to_watch = r"C:\Users\syazv\Downloads"
@@ -27,12 +27,14 @@ def main():
 
     fileChange = detectFileChange()
 
+    m = logic.Main()
+
     if fileChange != False:
+
         fileName = fileChange[0]
-        fileEnding = fileChange[0].split(".",1)[1]
-        print(fileName)
-        print(fileEnding)
-        endings.whatToDo(fileName,fileEnding,path_to_watch)
+
+        fileEnding = fileChange[0].split(".")[-1]
+        m.id_file(fileName,fileEnding,path_to_watch)
 
 while 1:
     main()
