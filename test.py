@@ -1,15 +1,13 @@
 from infi.systray import SysTrayIcon
 
 
-def say_hello(systray):
+def say_hello():
     print("Hello, World!")
 
 
 menu_options = (("Say Hello", None, say_hello),)
 
-systray = SysTrayIcon("icon.ico", "Example tray icon", menu_options)
-
-
+systray = SysTrayIcon("icon.ico", "Download Manager", menu_options)
 
 #sart systray
 systray.start()
