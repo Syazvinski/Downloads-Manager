@@ -2,7 +2,7 @@ import os
 import shutil
 from win10toast_persist import ToastNotifier
 import time
-
+import pickle
 
 class Main():
 
@@ -26,7 +26,7 @@ class Main():
         #endings and where to move
         self.data = ["csv","txt"]
         self.documents = ["pdf","doc","xlsx","xls","xlsm"]
-        self.photos = ["jpg","jpeg","bmp","png","wepb","heic"]
+        self.photos = ["jpg","jpeg","bmp","png","wepb","heic","jfif"]
         self.zipped = ["zip"]
         self.video = ["mp4","mov","avi"]
 

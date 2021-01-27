@@ -1,10 +1,12 @@
 import os, time
 import logic
 from infi.systray import SysTrayIcon
-import sys
+import os
+from pathlib import Path
 
-#path to watch
-path_to_watch = r"C:\Users\syazv\Downloads"
+#path that we are watching
+path_to_watch = str(os.path.join(Path.home(), "Downloads"))
+
 
 #making before list
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
@@ -40,8 +42,8 @@ def main():
 #leaving and diabling program
 def  on_quit_callback(systray):
     print("quitting")
-    systray.shutdown()
-    sys.exit()
+    #os exit to quit all threads
+    os._exit(1)
         
 #defining tray stuff
 systray = SysTrayIcon("icon.ico", "Downloads Manager",on_quit=on_quit_callback)
