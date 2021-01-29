@@ -33,7 +33,7 @@ class Main():
     def move_and_notify(self,folderName):
         time.sleep(self.timeToWait)
 
-        fullPath = os.path.normpath(self.path+r"\\"+self.fileName)
+        fullPath = os.path.normpath(self.path+r"\\"+self.fullFileName)
 
         if not os.path.exists(os.path.normpath(self.path+r"\\"+folderName)):
             os.makedirs(os.path.normpath(self.path+r"\\"+folderName))
@@ -43,14 +43,14 @@ class Main():
         except:
             self.send_notification("Error","This file already exists")
 
-        self.toast.show_toast(self.notificationTitle,f"{self.fileName} has been moved to the {folderName} folder.",duration=self.notificationDuration,icon_path=self.iconPath,threaded=True)
+        self.toast.show_toast(self.notificationTitle,f"{self.fullFileName} has been moved to the {folderName} folder.",duration=self.notificationDuration,icon_path=self.iconPath,threaded=True)
     
     def send_notification(self,title,body):
         self.toast.show_toast(title,body,duration=self.notificationDuration,icon_path=self.iconPath,threaded=True)
 
 
-    def id_file(self,fileName,fileEnding,path):
-        self.fileName = fileName
+    def id_file(self,fullFileName,fileEnding,path):
+        self.fullFileName = fullFileName
         self.fileEnding = fileEnding
         self.path = path
 
