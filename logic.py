@@ -21,14 +21,16 @@ class Main():
         self.iconPath = "icon.ico"
 
         #time to wait before moving file
-        self.timeToWait = 0.2
+        self.timeToWait = 0.1
 
         #endings and where to move
         self.data = ["csv","txt"]
         self.documents = ["pdf","doc","xlsx","xls","xlsm"]
-        self.photos = ["jpg","jpeg","bmp","png","wepb","heic","jfif"]
+        self.photos = ["jpg","jpeg","bmp","png","wepb","heic","jfif","ico"]
         self.zipped = ["zip"]
         self.video = ["mp4","mov","avi"]
+        self.installers = ["exe","msi","dll"]
+        self.audio = ["mp3","wav"]
 
     def move_and_notify(self,folderName):
         time.sleep(self.timeToWait)
@@ -73,6 +75,14 @@ class Main():
         for i in self.video:
             if self.fileEnding == i:
                 self.move_and_notify("video")
+
+        for i in self.installers:
+            if self.fileEnding == i:
+                self.move_and_notify("installers")
+
+        for i in self.audio:
+            if self.fileEnding == i:
+                self.move_and_notify("audio")
 
 
 

@@ -35,7 +35,6 @@ def main():
         fullFileName = fileChange[0]
         fileEnding = fileChange[0].split(".")[-1]
         fileName = fullFileName.replace(fileEnding,"").replace(".","")
-
         m = logic.Main()
         m.id_file(fullFileName,fileEnding,path_to_watch)
 
@@ -47,7 +46,6 @@ def organizeFolder(systray):
         fileEnding = fileName.split(".")[-1]
         m = logic.Main()
         m.id_file(fileName,fileEnding,path_to_watch)
-        print("moved")
 
 #leaving and diabling program
 def  on_quit_callback(systray):
@@ -71,5 +69,6 @@ systray.start()
 
 
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
 
